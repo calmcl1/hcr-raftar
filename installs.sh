@@ -1,5 +1,13 @@
+echo ===============================
+echo       UPDATING SOFTWARE
+echo ===============================
+
 sudo apt-get update
 sudo apt upgrade -y
+
+echo ===============================
+echo         REMOVING X11
+echo ===============================
 
 # Remove libx11-6 to remove x11 and all dependent packages (anything GUI related, basically)
 ## ...turns out they're required for linphone :|
@@ -7,6 +15,10 @@ sudo apt-get purge libx11-6 libgtk-3-common xkb-data lxde-icon-theme raspberrypi
 
 # Clean up redundant packages
 sudo apt-get autoremove -y
+
+echo ===============================
+echo      INSTALLING LINPHONE
+echo ===============================
 
 sudo apt install python-setuptools git screen build-essential pkg-config -y
 sudo easy_install pip
