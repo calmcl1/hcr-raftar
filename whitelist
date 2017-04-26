@@ -1,5 +1,5 @@
 {
-    whitelist: ["sip:calmcl1@sip.linphone.org",
+    "whitelist": ["sip:calmcl1@sip.linphone.org",
                 "sip:hcr-ob1-raftar@sip.linphone.org",
                 "sip:hcr-rx1@sip.linphone.org"]
 }
