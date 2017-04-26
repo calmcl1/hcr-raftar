@@ -2,6 +2,7 @@ import linphone
 import logging
 import signal
 import time
+import sys
 
 class RAFTaRRX:
 	def __init__(self, user='', passwd='', whitelist=[], snd_dev_pb='', snd_dev_cap=''):
@@ -86,9 +87,10 @@ class RAFTaRRX:
 			self.core.iterate()
 			time.sleep(0.03)
 
-
+username = sys.argv[1]
+password = sys.argv[2]
 			
-raf = RAFTaRRX("hcr-ob1-raftar", "hcr923fm", ["sip:calmcl1@sip.linphone.org"], 'ALSA: USB Audio Device',
+raf = RAFTaRRX(username, password, ["sip:calmcl1@sip.linphone.org"], 'ALSA: USB Audio Device',
 		'ALSA: USB Audio Device')
 
 raf.run()
