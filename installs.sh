@@ -1,4 +1,5 @@
 sudo apt-get update
+sudo apt upgrade -y
 
 # Remove libx11-6 to remove x11 and all dependent packages (anything GUI related, basically)
 ## ...turns out they're required for linphone :|
