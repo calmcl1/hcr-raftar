@@ -93,9 +93,11 @@ username = sys.argv[1]
 password = sys.argv[2]
 
 print "Getting updated whitelist"
-resp = urllib2.open(
+resp = urllib2.open("https://raw.githubusercontent.com/calmcl1/hcr-raftar/master/whitelist")
+body = resp.read()
+whitelist = json.loads(body)["whitelist"]
 			
-raf = RAFTaRRX(username, password, ["sip:calmcl1@sip.linphone.org"], 'ALSA: USB Audio Device',
+raf = RAFTaRRX(username, password, whitelist, 'ALSA: USB Audio Device',
 		'ALSA: USB Audio Device')
 
 raf.run()
