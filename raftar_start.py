@@ -96,8 +96,8 @@ logging.info("Getting updated whitelist")
 resp = urllib2.urlopen("https://raw.githubusercontent.com/calmcl1/hcr-raftar/master/whitelist")
 body = resp.read()
 whitelist = json.loads(body)["whitelist"]
-#for w in whitelist:
-#	print "Added to whitelist", w
+for w in whitelist:
+	print "Added to whitelist", w
 
 raf = RAFTaRRX(username, password, whitelist, 'ALSA: USB Audio Device',
 		'ALSA: USB Audio Device')
