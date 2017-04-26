@@ -11,7 +11,7 @@ echo ===============================
 
 # Remove libx11-6 to remove x11 and all dependent packages (anything GUI related, basically)
 ## ...turns out they're required for linphone :|
-sudo apt-get purge libx11-6 libgtk-3-common xkb-data lxde-icon-theme raspberrypi-artwork penguinspuzzle -y
+sudo apt-get purge libgtk-3-common xkb-data lxde-icon-theme raspberrypi-artwork penguinspuzzle -y
 
 # Clean up redundant packages
 sudo apt-get autoremove -y
