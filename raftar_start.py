@@ -3,6 +3,8 @@ import logging
 import signal
 import time
 import sys
+import json
+import urllib2
 
 class RAFTaRRX:
 	def __init__(self, user='', passwd='', whitelist=[], snd_dev_pb='', snd_dev_cap=''):
@@ -89,6 +91,9 @@ class RAFTaRRX:
 
 username = sys.argv[1]
 password = sys.argv[2]
+
+print "Getting updated whitelist"
+resp = urllib2.open(
 			
 raf = RAFTaRRX(username, password, ["sip:calmcl1@sip.linphone.org"], 'ALSA: USB Audio Device',
 		'ALSA: USB Audio Device')
