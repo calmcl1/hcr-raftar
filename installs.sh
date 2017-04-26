@@ -20,7 +20,7 @@ echo ===============================
 echo      INSTALLING LINPHONE
 echo ===============================
 
-sudo apt install python-setuptools git screen build-essential pkg-config -y
+sudo apt install python-setuptools git screen build-essential pkg-config libx11-6 -y
 sudo easy_install pip
 sudo pip install --upgrade pip
 sudo pip install wheel
