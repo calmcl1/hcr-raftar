@@ -93,7 +93,7 @@ username = sys.argv[1]
 password = sys.argv[2]
 
 print "Getting updated whitelist"
-resp = urllib2.open("https://raw.githubusercontent.com/calmcl1/hcr-raftar/master/whitelist")
+resp = urllib2.urlopen("https://raw.githubusercontent.com/calmcl1/hcr-raftar/master/whitelist")
 body = resp.read()
 whitelist = json.loads(body)["whitelist"]
 			
