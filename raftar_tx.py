@@ -36,14 +36,14 @@ class RAFTaRTX:
         if snd_dev_cap:
             self.core.capture_device = snd_dev_cap
 
-        for codec in self.core.audio_codecs:
-            if codec.mime_type.upper() in self.codecs:
-                self.core.enable_payload_type(codec, True)
-                logging.info("Enabled codec: {0}".format(codec.mime_type))
+        #for codec in self.core.audio_codecs:
+        #    if codec.mime_type.upper() in self.codecs:
+        #        self.core.enable_payload_type(codec, True)
+        #        logging.info("Enabled codec: {0}".format(codec.mime_type))
 
-            else:
-                self.core.enable_payload_type(codec, False)
-                logging.info("Disabled codec: {0}".format(codec.mime_type))
+       #     else:
+       #         self.core.enable_payload_type(codec, False)
+       #         logging.info("Disabled codec: {0}".format(codec.mime_type))
 
         self.configure_sip_account(user, passwd)
 
