@@ -40,7 +40,7 @@ class RAFTaRTX:
             if codec.mime_type.upper() in self.codecs:
                 self.core.enable_payload_type(codec, True)
                 logging.info("Enabled codec: {0}".format(codec.mime_type))
-                
+
             else:
                 self.core.enable_payload_type(codec, False)
                 logging.info("Disabled codec: {0}".format(codec.mime_type))
@@ -60,7 +60,7 @@ class RAFTaRTX:
             logging.info("Call ended. Reason: {reason}".format(
                 reason=call.reason))
         elif state == linphone.CallState.Connected:
-            logging.info("Call connected.")
+            logging.info("Call connected. Using codec {0}".format(call.used_audio_codec))
         elif state == linphone.CallState.Idle:
             self.start_call("sip:hcr-rx1@sip.linphone.org")
 
