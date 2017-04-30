@@ -25,7 +25,7 @@ class RAFTaRTX:
 
         self.core = linphone.Core.new(callbacks, None, None)
         self.core.max_calls = 1
-        self.core.echo_cancellation_enabled = True
+        self.core.echo_cancellation_enabled = False
         self.core.video_capture_enabled = False
         self.core.video_display_enabled = False
         self.core.stun_server = 'stun.linphone.org'
