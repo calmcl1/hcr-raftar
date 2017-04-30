@@ -95,7 +95,7 @@ class RAFTaRTX:
         params = self.core.create_call_params(None)
         params.audio_bandwidth_limit = 128
         address = linphone.Address.new(call_address)
-        self.call = self.core.invite_address_with_params()
+        self.call = self.core.invite_address_with_params(address, params)
 
     def run(self):
         while self.running:
