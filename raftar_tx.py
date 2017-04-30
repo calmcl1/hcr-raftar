@@ -14,7 +14,8 @@ class RAFTaRTX:
     def __init__(self, user, passwd, codecs, snd_dev_pb='', snd_dev_cap=''):
         self.running = True
         callbacks = {
-            'call_state_changed': self.call_state_changed
+            'call_state_changed': self.call_state_changed,
+            'registration_state_changed': self.registration_state_changed
         }
         self.codecs = codecs
 
@@ -69,6 +70,12 @@ class RAFTaRTX:
             logging.info("Call connected.")
         elif state == linphone.CallState.Idle:
             self.start_call("sip:hcr-rx1@sip.linphone.org")
+
+    def registration_state_changed(self, core, call, state, message):
+        if state == linphone.RegistrationState.OK:
+            logging.info("Registration OK, starting first call...")
+            self.start_call("sip:hcr-rx1@sip.linphone.org")
+
 
 
     def configure_sip_account(self, username, password):
