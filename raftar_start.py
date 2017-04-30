@@ -1,7 +1,6 @@
-"""RAFTAR is the Ropey As Fuck TAlkback Resource.
-Copyright (c) 2017 Callum McLean
-Released under the MIT Licence - see LICENSE.md for details.
-"""
+# RAFTAR is the Ropey As Fuck TAlkback Resource.
+# Copyright (c) 2017 Callum McLean
+# Released under the MIT Licence - see LICENSE.md for details.
 
 import sys
 
