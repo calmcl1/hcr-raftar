@@ -70,7 +70,7 @@ class RAFTaRRX:
             if call.remote_address.as_string_uri_only() in self.whitelist:
                 params = core.create_call_params(call)
 #				params.record_file = "/home/pi/recording_{0}.wav".format(time.strftime("%y-%m-%d %H%M%S"))
-                params.audio_bandwidth_limit = 128
+                #params.audio_bandwidth_limit = 128
                 core.accept_call_with_params(call, params)
 #				call.start_recording()
                 logging.info("Call accepted")
