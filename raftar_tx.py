@@ -40,14 +40,7 @@ class RAFTaRTX:
             if codec.mime_type.upper() in self.codecs:
                 self.core.enable_payload_type(codec, True)
                 logging.info("Enabled codec: {0}".format(codec.mime_type))
-
-                # Set bitrates as per EBU 3347
-                if codec.mime_type == "PCMA":
-                    self.core.set_payload_type_bitrate(codec, 64)
-                elif codec.mime_type == "PCMU":
-                    self.core.set_payload_type_bitrate(codec, 64)
-                elif codec.mime_type == "G722":
-                    self.core.set_payload_type_bitrate(codec, 64)
+                
             else:
                 self.core.enable_payload_type(codec, False)
                 logging.info("Disabled codec: {0}".format(codec.mime_type))
@@ -93,7 +86,7 @@ class RAFTaRTX:
     def start_call(self, call_address):
         logging.info("Attempting call...")
         params = self.core.create_call_params(None)
-        params.audio_bandwidth_limit = 1024
+        params.audio_bandwidth_limit = 128
         address = linphone.Address.new(call_address)
         self.call = self.core.invite_address_with_params(address, params)
 

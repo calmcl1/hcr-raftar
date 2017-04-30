@@ -41,14 +41,6 @@ class RAFTaRRX:
             if codec.mime_type.upper() in self.codecs:
                 self.core.enable_payload_type(codec, True)
                 logging.info("Enabled codec: {0}".format(codec.mime_type))
-
-                # Set bitrates as per EBU 3347
-                if codec.mime_type == "PCMA":
-                    self.core.set_payload_type_bitrate(codec, 64)
-                elif codec.mime_type == "PCMU":
-                    self.core.set_payload_type_bitrate(codec, 64)
-                elif codec.mime_type == "G722":
-                    self.core.set_payload_type_bitrate(codec, 64)
             else:
                 self.core.enable_payload_type(codec, False)
                 logging.info("Disabled codec: {0}".format(codec.mime_type))
@@ -70,7 +62,7 @@ class RAFTaRRX:
             if call.remote_address.as_string_uri_only() in self.whitelist:
                 params = core.create_call_params(call)
 #				params.record_file = "/home/pi/recording_{0}.wav".format(time.strftime("%y-%m-%d %H%M%S"))
-                params.audio_bandwidth_limit = 1024
+                params.audio_bandwidth_limit = 128
                 core.accept_call_with_params(call, params)
 #				call.start_recording()
                 logging.info("Call accepted")
@@ -81,6 +73,8 @@ class RAFTaRRX:
                 msg = chat_room.create_message(
                     call.remote_address_as_string + ' tried to call')
                 chat_room.send_chat_message(msg)
+            if state == linphone.CallState.Connected:
+                logging.info("Call connected. Using codec {0}".format(call.used_audio_codec))
 
     def configure_sip_account(self, username, password):
         proxy_cfg = self.core.create_proxy_config()
