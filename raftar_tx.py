@@ -72,7 +72,7 @@ class RAFTaRTX:
             self.start_call("sip:hcr-rx1@sip.linphone.org")
 
     def registration_state_changed(self, core, call, state, message):
-        if state == linphone.RegistrationState.OK:
+        if state == linphone.RegistrationState.Ok:
             logging.info("Registration OK, starting first call...")
             self.start_call("sip:hcr-rx1@sip.linphone.org")
 
