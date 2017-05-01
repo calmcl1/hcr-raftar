@@ -30,6 +30,8 @@ class RAFTaRTX:
         self.core.video_display_enabled = False
         self.core.stun_server = 'stun.linphone.org'
         self.core.firewall_policy = linphone.FirewallPolicy.PolicyUseIce
+        self.core.microphone_volume_gain = 0.8
+        self.core.speaker_volume_gain = 0.8
 
         if snd_dev_pb:
             self.core.playback_device = snd_dev_pb

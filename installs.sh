@@ -59,7 +59,9 @@ cd mediastreamer2
 wget http://www.linphone.org/releases/sources/plugins/msamr/msamr-latest.tar.gz
 tar xzf msamr-latest.tar.gz
 git clone git://github.com/BelledonneCommunications/bcg729.git
-cmake -DENABLE_VIDEO=NO -DENABLE_ALSA=YES -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729B_CNG=YES -DCMAKE_INSTALL_PREFIX="bcg*:msamr*".
+bcg729/autogen.sh
+git clone git://github.com/Linphone-sync/mssilk.git
+cmake -DENABLE_VIDEO=NO -DENABLE_ALSA=YES -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729B_CNG=YES -DBcg729_DIR="bcg729" .
 make
 sudo make install
 cd ..
