@@ -34,9 +34,8 @@ cd ..
 echo 
 echo   INSTALLING DEP: BCTOOLBOX
 echo -------------------------------
-wget http://www.linphone.org/releases/sources/bctoolbox/bctoolbox-latest.tar.gz
-tar xzf bctoolbox-latest.tar.gz
-cd bctoolbox*
+git clone git://github.com/BelledonneCommunications/bctoolbox.git
+cd bctoolbox
 cmake . -DENABLE_TESTS_COMPONENT=NO
 make
 sudo make install
@@ -45,9 +44,8 @@ cd ..
 echo 
 echo     INSTALLING DEP: oRTP
 echo -------------------------------
-wget http://www.linphone.org/releases/sources/ortp/ortp-latest.tar.gz
-tar xzf ortp-latest.tar.gz
-cd ortp*
+git clone git://git.linphone.org/ortp.git
+cd ortp
 cmake .
 make
 sudo make install
@@ -56,10 +54,12 @@ cd ..
 echo 
 echo    INSTALLING MEDIASTREAMER
 echo -------------------------------
-wget http://www.linphone.org/releases/sources/mediastreamer/mediastreamer-latest.tar.gz
-tar xzf mediastreamer-latest.tar.gz
-cd mediastreamer*
-cmake -DENABLE_VIDEO=NO -DENABLE_ALSA=YES -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729B_CNG=YES.
+git clone git://github.com/BelledonneCommunications/mediastreamer2.git
+cd mediastreamer2
+wget http://www.linphone.org/releases/sources/plugins/msamr/msamr-latest.tar.gz
+tar xzf msamr-latest.tar.gz
+git clone git://github.com/BelledonneCommunications/bcg729.git
+cmake -DENABLE_VIDEO=NO -DENABLE_ALSA=YES -DENABLE_NON_FREE_CODECS=YES -DENABLE_G729B_CNG=YES -DCMAKE_INSTALL_PREFIX="bcg*:msamr*".
 make
 sudo make install
 cd ..
@@ -69,29 +69,6 @@ export MEDIASTREAMER_LIBS=-L/usr/local/lib
 echo ===============================
 echo      INSTALLING PLUGINS
 echo ===============================
-
-echo 
-echo      INSTALLING BCG729
-echo -------------------------------
-
-wget http://www.linphone.org/releases/sources/plugins/bcg729/bcg729-latest.tar.gz
-tar xzf bcg729-latest.tar.gz
-cd bcg729-latest.tar.gz
-cmake .
-make
-sudo make install
-cd ..
-
-echo 
-echo       INSTALLING MSAMR
-echo -------------------------------
-wget http://www.linphone.org/releases/sources/plugins/msamr/msamr-latest.tar.gz
-tar xzf msamr-latest.tar.gz
-cd msamr*
-cmake .
-make
-sudo make install
-cd ..
 
  echo 
  echo       INSTALLING MSiLBC
