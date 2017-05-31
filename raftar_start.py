@@ -4,10 +4,10 @@
 
 import sys
 import argparse
-#import linphone
+import linphone
 
-#from raftar_rx import RAFTaRRX
-#from raftar_tx import RAFTaRTX
+from raftar_rx import RAFTaRRX
+from raftar_tx import RAFTaRTX
 
 CODECS = ['PCMA', 'PCMU', 'OPUS', 'G722', 'SPEEX']
 #CODECS=['PCMA']
